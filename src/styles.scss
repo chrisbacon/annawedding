@@ -1,0 +1,21 @@
+/* Add application styles & imports to this file! */
+
+$light1: #F7DDC3;
+$light2: #F9CCB8;
+$light3: #F88E85;
+$dark1: #A2325D;
+$dark2: #392332;
+
+body {
+  color: $dark2;
+  background-color: $light2;
+  font-family: Arial;
+  padding: 10px; 
+}
+
+.dummy-image {
+  background: blue;
+  height: 300px;
+  width: 300px;
+  margin: auto;
+}

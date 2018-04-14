@@ -1,0 +1,18 @@
+@import '~styles.scss';
+
+:host {
+    color: $dark1;
+    cursor: pointer;
+}
+
+:host(.active) {
+  background-color: $light3;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+:host-context(nav) {
+  margin: 10px;
+}

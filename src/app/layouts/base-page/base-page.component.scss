@@ -1,0 +1,36 @@
+@import '~styles.scss';
+
+:host {
+  display: grid;
+  position: relative;
+  max-width: 1200px;
+  min-width: 800px;
+  margin: auto;
+  grid-template-areas: 'nav header' 'nav main';
+  justify-items: center;
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+}
+
+section {
+  grid-area: main;
+}
+
+header {
+  grid-area: header;
+  font-size: 3em;
+}
+
+nav {
+  grid-area: nav;
+  margin: 54px auto auto;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-right: 1px solid $dark1;
+  position: sticky;
+  top: 10px;
+  min-width: 100px;
+}

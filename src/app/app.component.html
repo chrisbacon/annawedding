@@ -1,0 +1,14 @@
+<app-base-page>
+  <ng-container header>
+    Anna and Ryan's Wedding
+    <!-- <app-image-carousel></app-image-carousel> -->
+  </ng-container>
+  <ng-container nav>
+    <app-nav-menu routerLink="main" routerLinkActive="active">Main</app-nav-menu>
+    <app-nav-menu routerLink="venue" routerLinkActive="active">Venue</app-nav-menu>
+    <app-nav-menu routerLink="rsvp" routerLinkActive="active">RSVP</app-nav-menu>    
+  </ng-container>
+  <ng-container main>
+    <router-outlet></router-outlet>
+  </ng-container>
+</app-base-page>
