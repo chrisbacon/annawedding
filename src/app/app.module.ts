@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -22,7 +22,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
+  imports: [BrowserModule, ReactiveFormsModule, RouterModule.forRoot(routes)],
   declarations: [AppComponent, BasePageComponent, NavMenuComponent, MainContentComponent, WelcomeComponent, RsvpComponent, DirectionsComponent, MainPanelComponent, SidePanelComponent, ImageCarouselComponent],
   bootstrap: [AppComponent]
 })
