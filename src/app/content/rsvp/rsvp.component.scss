@@ -1,37 +1,54 @@
 :host {
     width: 100%;
-    .form-row {
+
+    form {
         display: grid;
-        grid-template-columns: 60% 40%;
-        align-items: center;
-        grid-row-gap: 10px;
-        margin: 10px 0;
-        justify-items: stretch;
-        min-width: 800px;
+        grid-template-columns: 1fr 0fr;
 
-        span {
-            grid-column-start: 1;
-        }
-
-        &.multi {
-            & span {
-                grid-column-end: 3;
+        .form-group {
+            margin: 5px 0;
+            border-bottom: 1px dashed black;
+            grid-column-start: span 3;
+        
+            .form-row {
+                display: grid;
+                grid-template-columns: 70% 30%;
+                align-items: center;
+                grid-row-gap: 10px;
+                margin: 10px 0;
+                justify-items: stretch;
+                min-width: 800px;
+    
+                span {
+                    grid-column-start: 1;
+                }
+    
+                &.multi {
+                    & span {
+                        grid-column-end: 3;
+                    }
+                }
+    
+                input[type="checkbox"] {
+                    width: 16px;
+                    grid-column-start: 2;
+                }
+    
+                input[type="number"] {
+                    grid-column-start: 2;
+                    width: calc(100% - 17px);
+                }
+    
+                textarea {
+                    grid-row-start: 2;
+                    grid-column: span 2;
+                }
             }
         }
 
-        input[type="checkbox"] {
-            width: 16px;
-            grid-column-start: 2;
-        }
-
-        input[type="number"] {
-            grid-column-start: 2;
-            width: calc(100% - 17px);
-        }
-
-        textarea {
-            grid-row-start: 2;
-            grid-column: span 2;
+        button {
+            grid-column-start: 3;
         }
     }
+    
 }

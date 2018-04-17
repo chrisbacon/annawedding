@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FormModel } from '../../models/form-model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-rsvp',
@@ -11,11 +12,12 @@ export class RsvpComponent implements OnInit {
 
   formGroup: FormGroup;
   data: FormModel;
-  showChildren: boolean = false;
-  constructor() { }
+  showChildren: boolean;
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.formGroup = new FormGroup({
+      name: new FormControl(""),
       adults: new FormGroup({
         all: new FormControl(true),
         missing: new FormControl("")
@@ -26,12 +28,16 @@ export class RsvpComponent implements OnInit {
         highChairs: new FormControl(0)
       }),
       dietary: new FormControl(""),
-      transport: new FormControl("") 
+      transport: new FormControl() 
     })
   }
 
   childrenClick() {
     this.showChildren = !this.showChildren;
+  }
+
+  onSubmit({ value, valid }: { value: FormModel, valid: boolean }) {
+    this.httpClient.post()
   }
 
 }

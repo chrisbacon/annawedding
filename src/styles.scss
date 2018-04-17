@@ -8,8 +8,8 @@ $dark2: #392332;
 
 body {
   color: $dark2;
-  background-color: $light2;
-  font-family: Arial;
+  background: linear-gradient(to bottom right, $light1, $light2);
+  font-family: Roboto, sans-serif;
   padding: 10px; 
 }
 
