@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { FormModel } from '../../models/form-model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-rsvp',
@@ -10,9 +11,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RsvpComponent implements OnInit {
 
-  formGroup: FormGroup;
-  data: FormModel;
-  showChildren: boolean;
+  public formGroup: FormGroup;
+  public data: FormModel;
+  public showChildren: boolean = false;
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
@@ -37,7 +38,9 @@ export class RsvpComponent implements OnInit {
   }
 
   onSubmit({ value, valid }: { value: FormModel, valid: boolean }) {
-    this.httpClient.post()
+    if (valid) {
+      this.httpClient.post("https://ma833hbsgf.execute-api.eu-west-1.amazonaws.com/v1", value).subscribe(message => console.log(message));      
+    }
   }
 
 }

@@ -3,12 +3,12 @@
         <label class="form-row"><span>Name</span><input formControlName="name"></label>
     </div>
     <div class="form-group" formGroupName="adults">
-            <label class="form-row"><span>Can everyone included on the invite attend?</span><select formControlName="all"><option [value]="true">Yes</option><option [value]="false">No</option></select></label>
-            <label class="form-row multi" *ngIf="!formGroup.get('adults').get('all').value"><span>Please list any invitees who cannot attend.</span><textarea formControlName="missing"></textarea></label>
+            <label class="form-row"><span>Can everyone included on the invite attend?</span><select formControlName="all"><option [ngValue]="true">Yes</option><option [ngValue]="false">No</option></select></label>
+            <label *ngIf="!this.formGroup.get('adults.all').value"  class="form-row multi"><span>Please list any invitees who cannot attend.</span><textarea formControlName="missing" value=""></textarea></label>
     </div>
-    
+
     <div class="form-group" formGroupName="children">
-            <label class="form-row"><span>Children are invited, will you be bringing your children?</span><select [value]="showChildren" (change)="childrenClick($event)"><option [value]="true">Yes</option><option [value]="false">No</option></select></label>
+            <label class="form-row"><span>Children are invited, will you be bringing your children?</span><select [value]="showChildren" (change)="childrenClick()"><option [value]="true">Yes</option><option [value]="false">No</option></select></label>
             <ng-container *ngIf="showChildren">
             <label class="form-row"><span>How many will be attending?</span><input type="number" formControlName="number" min="0"></label>
             <label class="form-row multi"><span>Will they be happy to eat the adult food or would they be happier with a kid-friendly meal?</span><textarea formControlName="dietary"></textarea></label>
