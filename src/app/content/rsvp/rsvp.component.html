@@ -1,28 +1,32 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
     <div class="form-group">
-        <label class="form-row"><span>Name</span><input formControlName="name"></label>
+        <label class="form-row"><span>Name (required)</span><input formControlName="name"></label>
+    </div>
+    <div class="form-group">
+        <label class="form-row"><span>Email address (required)</span><input formControlName="email" type="email"></label>
     </div>
     <div class="form-group" formGroupName="adults">
             <label class="form-row"><span>Can everyone included on the invite attend?</span><select formControlName="all"><option [ngValue]="true">Yes</option><option [ngValue]="false">No</option></select></label>
-            <label *ngIf="!this.formGroup.get('adults.all').value"  class="form-row multi"><span>Please list any invitees who cannot attend.</span><textarea formControlName="missing" value=""></textarea></label>
+            <label *ngIf="!this.formGroup.get('adults.all').value"  class="form-row multi" @collapseExpand><span>Please list any invitees who cannot attend.</span><textarea formControlName="missing" value=""></textarea></label>
     </div>
 
     <div class="form-group" formGroupName="children">
             <label class="form-row"><span>Children are invited, will you be bringing your children?</span><select [value]="showChildren" (change)="childrenClick()"><option [value]="true">Yes</option><option [value]="false">No</option></select></label>
-            <ng-container *ngIf="showChildren">
+            <div *ngIf="showChildren" @collapseExpand>
             <label class="form-row"><span>How many will be attending?</span><input type="number" formControlName="number" min="0"></label>
             <label class="form-row multi"><span>Will they be happy to eat the adult food or would they be happier with a kid-friendly meal?</span><textarea formControlName="dietary"></textarea></label>
             <label class="form-row"><span>How many high chairs will you need?</span><input type="number" formControlName="highChairs" min="0"></label>            
-            </ng-container>
+            </div>
     </div>
 
     <div class="form-group">
         <label class="form-row multi"><span>Please specify if you have any dietary requirements, our caterers are more than happy to accommodate them (e.g. vegetarian, peanut, celiac, halal, kosher) </span><textarea formControlName="dietary"></textarea></label>
     </div>
     <div class="form-group">
-        <label class="form-row"><span>Would you have any interest in pre-booked taxis or a coach to take you back into Edinburgh after the reception?</span><select formControlName="transport"><option [value]="true">Yes</option><option [value]="false">No</option></select></label>    
+        <label class="form-row"><span>Would you have any interest in pre-booked taxis or a coach to take you back into Edinburgh after the reception? (required)</span><select formControlName="transport"><option [value]="true">Yes</option><option [value]="false">No</option></select></label>    
     </div>
     
-
     <button type="submit">RSVP</button>
 </form>
+
+{{formGroup.errors}}

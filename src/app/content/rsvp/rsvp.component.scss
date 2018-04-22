@@ -4,12 +4,16 @@
     form {
         display: grid;
         grid-template-columns: 1fr 0fr;
-
+        
         .form-group {
             margin: 5px 0;
             border-bottom: 1px dashed black;
             grid-column-start: span 3;
-        
+
+            div, .form-row {
+                overflow:hidden;
+            }
+
             .form-row {
                 display: grid;
                 grid-template-columns: 70% 30%;

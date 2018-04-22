@@ -1,13 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormModel } from '../../models/form-model';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/Rx';
+import { style, state, animate, transition, trigger } from '@angular/animations';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-rsvp',
   templateUrl: './rsvp.component.html',
-  styleUrls: ['./rsvp.component.scss']
+  styleUrls: ['./rsvp.component.scss'],
+  animations: [
+    trigger('collapseExpand', [
+      transition(':enter', [   // :enter is alias to 'void => *'
+        style({height: 0}),
+        animate(500, style({height: "*"})) ,
+      ]),
+      transition(':leave', [   // :leave is alias to '* => void'
+        animate(500, style({height: 0}))
+      ])
+    ])
+  ]
 })
 export class RsvpComponent implements OnInit {
 
@@ -18,7 +30,8 @@ export class RsvpComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup = new FormGroup({
-      name: new FormControl(""),
+      name: new FormControl("", Validators.required),
+      email: new FormControl("", [Validators.required, Validators.email]),
       adults: new FormGroup({
         all: new FormControl(true),
         missing: new FormControl("")
@@ -29,7 +42,7 @@ export class RsvpComponent implements OnInit {
         highChairs: new FormControl(0)
       }),
       dietary: new FormControl(""),
-      transport: new FormControl() 
+      transport: new FormControl(null, Validators.required) 
     })
   }
 

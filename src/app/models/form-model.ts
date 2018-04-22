@@ -1,5 +1,6 @@
 export interface FormModel {
     name: string,
+    email: string,
     allAttending: boolean;
     childrenAttending: {
         number: number;
