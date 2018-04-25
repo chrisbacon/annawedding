@@ -11,7 +11,7 @@
             grid-column-start: span 3;
 
             div, .form-row {
-                overflow:hidden;
+                overflow: hidden;
             }
 
             .form-row {
@@ -46,6 +46,8 @@
                 textarea {
                     grid-row-start: 2;
                     grid-column: span 2;
+                    resize: none;
+                    height: 140px;
                 }
             }
         }

@@ -1,4 +1,7 @@
-<div class="red" [ngStyle]="getStyle(0)"></div>
-<div class="blue" [ngStyle]="getStyle(1)"></div>
-<div class="green" [ngStyle]="getStyle(2)"></div>
-<div class="yellow" [ngStyle]="getStyle(3)"></div> 
+<ngx-slideshow #carousel [cards]="3" [cardSize]="'200px'" [padding]="'14px'">
+    <li><img src="assets/couple1.jpg"></li>
+    <li><img src="assets/couple2.jpg"></li>
+    <li><img src="assets/couple3.jpg"></li>
+    <li><img src="assets/couple4.jpg"></li>
+    <li><img src="assets/couple5.jpg"></li>
+</ngx-slideshow>

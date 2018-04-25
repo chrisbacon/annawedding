@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, OnDestroy, OnInit, HostBinding } from "@angular/core";
+import { Component, AfterViewInit, OnDestroy, OnInit, HostBinding, ViewChild } from "@angular/core";
 import { Observable, Subscription } from "rxjs/Rx";
+import { NgxSlideshowComponent } from "ngx-slideshow";
 
 @Component({
   selector: "app-image-carousel",
@@ -9,40 +10,27 @@ import { Observable, Subscription } from "rxjs/Rx";
 export class ImageCarouselComponent implements AfterViewInit, OnDestroy, OnInit {
   private sub: Subscription;
 
+  private position: number = 0; 
+
+  @ViewChild('carousel') carousel: NgxSlideshowComponent;
+
   ngAfterViewInit(): void {
     this.sub = Observable.interval(2000)
-    .do(() => console.log(this.labelOrder))
-    .do(() => this.rotate())
     .delay(2000)
-    .subscribe(() => this.shouldSlide = true);
+    .subscribe(() => this.rotate());
   }
 
-  public totalImages = 4;
-  public shown = 3;
-
-  public labelOrder = [];
-
-  @HostBinding('class.slide') shouldSlide: boolean;
 
   constructor() {
   }
 
   ngOnInit() {
-    for (let i=0; i < this.totalImages ; i++) {
-      this.labelOrder.push(i);
-    }
   }
 
   rotate() {
-    this.labelOrder = this.labelOrder.map(val => (val + 1) % this.totalImages);
-    this.shouldSlide = false;
-  }
-
-
-  getStyle(label): any {
-    const index = this.labelOrder.findIndex(orderedLabel => orderedLabel == label) + 1;
-    return {"grid-column-start": `${index}`, "grid-row-start": 1};
-  }
+    this.position = (this.position + 1) % 4;
+    this.carousel.goTo(this.position);
+  } 
 
   ngOnDestroy() {
     this.sub.unsubscribe();

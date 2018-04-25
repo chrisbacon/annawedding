@@ -16,6 +16,7 @@ import { MainPanelComponent } from './layouts/base-page/main-panel/main-panel.co
 import { SidePanelComponent } from './layouts/base-page/side-panel/side-panel.component';
 import { ImageCarouselComponent } from './widgets/image-carousel/image-carousel.component';
 import { AboutComponent } from './content/about/about.component';
+import { NgxSlideshowModule } from 'ngx-slideshow';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -26,7 +27,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [BrowserModule,  BrowserAnimationsModule, ReactiveFormsModule, RouterModule.forRoot(routes), HttpClientModule],
+  imports: [BrowserModule,  BrowserAnimationsModule, ReactiveFormsModule, RouterModule.forRoot(routes), HttpClientModule, NgxSlideshowModule.forRoot()],
   declarations: [AppComponent, BasePageComponent, NavMenuComponent, MainContentComponent, WelcomeComponent, RsvpComponent, DirectionsComponent, MainPanelComponent, SidePanelComponent, ImageCarouselComponent, AboutComponent],
   bootstrap: [AppComponent]
 })
