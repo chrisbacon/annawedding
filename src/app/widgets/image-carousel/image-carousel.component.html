@@ -1,7 +1,12 @@
 <ngx-slideshow #carousel [cards]="3" [cardSize]="'200px'" [padding]="'14px'">
-    <li><img src="assets/couple1.jpg"></li>
-    <li><img src="assets/couple2.jpg"></li>
-    <li><img src="assets/couple3.jpg"></li>
-    <li><img src="assets/couple4.jpg"></li>
-    <li><img src="assets/couple5.jpg"></li>
+    <li *ngFor="let i of numbers">
+        <img [src]="'assets/'+ imgPrefix + (i+1) + '.png'">
+    </li>
+    <!-- <li><img src="assets/couple1.png"></li>
+    <li><img src="assets/couple2.png"></li>
+    <li><img src="assets/couple3.png"></li>
+    <li><img src="assets/couple4.png"></li>
+    <li><img src="assets/couple5.png"></li>
+    <li><img src="assets/couple6.png"></li>
+    <li><img src="assets/couple7.png"></li> -->
 </ngx-slideshow>
