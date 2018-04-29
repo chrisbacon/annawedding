@@ -10,7 +10,7 @@ import { NgxSlideshowComponent } from "ngx-slideshow";
 export class ImageCarouselComponent implements AfterViewInit, OnDestroy, OnInit {
   private sub: Subscription;
 
-  private position: number = -1; 
+  private position: number = 0; 
   private delta: number = 1;
   private imgNo: number = 6;
   public imgPrefix: string = "couple";
@@ -20,7 +20,7 @@ export class ImageCarouselComponent implements AfterViewInit, OnDestroy, OnInit 
 
   ngAfterViewInit(): void {
     this.carousel.goTo(this.position);
-    this.sub = Observable.interval(2000)
+    this.sub = Observable.interval(5000)
     .delay(2000)
     .subscribe(() => this.rotate());
   }
@@ -33,7 +33,7 @@ export class ImageCarouselComponent implements AfterViewInit, OnDestroy, OnInit 
 
   rotate() {
     this.position = (this.position + this.delta);
-    this.delta = !(this.position === -1 || (this.position === this.imgNo - 1)) ? this.delta : -this.delta;
+    this.delta = !(this.position === 0 || (this.position === this.imgNo - 1)) ? this.delta : -this.delta;
     this.carousel.goTo(this.position);
   } 
 
