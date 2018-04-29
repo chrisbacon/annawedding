@@ -31,8 +31,8 @@ nav {
   display: flex;
   flex: none;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: stretch;
   border-right: 1px solid $dark1;
   position: sticky;
   top: 10px;
