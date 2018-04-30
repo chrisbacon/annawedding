@@ -1,0 +1,8 @@
+{
+  "Template": {
+    "TemplateName": "Notification",
+    "SubjectPart": "RSVP for {{name}}",
+    "HtmlPart": "<p><b>Name:</b> {{name}}<br><b>Email:</b> {{email}}<br><b>Is everybody attending?:</b> {{allAttending}}<br><b>Children:</b> number: {{childrenAttending.number}}<br> Menu for children: {{childrenAttending.dietary}}<br>High Chairs: {{childrenAttending.highChairs}}</p><p><b>Dietary needs:</b> {{dietary}}</p><p><b>Transport required:</b> {{transport}}</p>",
+    "TextPart": "Name: {{name}}\\nEmail: {{email}}\\nIs everybody attending?: {{allAttending}}\\nChildren Attending: {{childrenAttending.number}}\\nMenu for children: {{childrenAttending.dietary}}\\nHigh Chairs: {{childrenAttending.highChairs}}\\nDietary Needs: {{dietary}}\\nTransport required: {{transport}}."
+  }
+}

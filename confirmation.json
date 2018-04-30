@@ -1,0 +1,7 @@
+{
+    "Template": {
+      "TemplateName": "Confirmation",
+      "SubjectPart": "Thank you for your RSVP",
+      "TextPart": "Dear {{name}}\t\n\t\nThank you for confirming your attendance at our wedding. We are incredibly excited to share this special day with you.\t\n\t\nLots of love,\t\n\t\nRyan and Anna."
+    }
+  }

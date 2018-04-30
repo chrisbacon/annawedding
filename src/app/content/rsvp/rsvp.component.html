@@ -1,4 +1,6 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+<form *ngIf="state !== 'successful' && state !== 'failed'" [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)">
+    <div *ngIf="state === 'pending'"class="pending"></div>
+    
     <div class="form-group">
         <label class="form-row"><span>Name (required)</span><input formControlName="name"></label>
     </div>
@@ -29,4 +31,10 @@
     <button type="submit">RSVP</button>
 </form>
 
-{{formGroup.errors}}
+<div *ngIf="state === 'successful'" class="message">
+    Thank you for RSVPing! An email confirmation will be sent to you shortly.
+</div>
+
+<div *ngIf="state === 'failed'" class="message">
+    There was a problem with your submission. <a href (click)="reset($event)">Please try again</a>. If this form continues to fail, you can RSVP by sending Ryan and Anna an email to <a href="mailto:ryanandanna2018@gmail.com"></a>ryanandanna2018@gmail.com.
+</div>
